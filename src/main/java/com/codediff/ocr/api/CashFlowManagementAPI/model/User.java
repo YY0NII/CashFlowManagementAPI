@@ -1,16 +1,35 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
-import javax.persistence.OneToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.*;
 
 public class User {
     private String userName;
     private Double budget;
     private Double totalSpent;
-    private Long Id;
-    private Boolean overSpent;
+    @Id
+    @GeneratedValue
+    private Long id;
+    private Boolean overSpent = false;
+
 
     private List<Receipt> receipts;
+
+    public User(){
+
+    }
+
+    public User(String userName) {
+        this.userName = userName;
+    }
+
+    public User(String userName, Double budget, Double totalSpent, Long id){
+        this.userName = userName;
+        this.budget = budget;
+        this.totalSpent = totalSpent;
+        this.id = id;
+    }
 
     public List<Receipt> getReceipts() {
         return receipts;
@@ -46,11 +65,11 @@ public class User {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public Boolean getOverSpent() {
