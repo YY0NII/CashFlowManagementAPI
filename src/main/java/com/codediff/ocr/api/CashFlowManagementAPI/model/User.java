@@ -14,7 +14,7 @@ public class User {
     private Boolean overSpent = false;
 
 
-    private List<Receipt> receipts;
+    private List<Receipt> receipts = new ArrayList<>();
 
     public User(){
 
@@ -87,14 +87,5 @@ public class User {
     public void removeFromSpent(Double expense) {
         totalSpent -= expense;
     }
-
-    public void addReceipt(Receipt receipts) {
-
-    }
-
-    public void removeReceipt(Receipt receipts) {
-
-    }
-
 
 }
