@@ -8,7 +8,6 @@ public class User {
     private Double totalSpent;
     private Long Id;
     private Boolean overSpent;
-
     private List<Receipt> receipts;
 
     public List<Receipt> getReceipts() {
