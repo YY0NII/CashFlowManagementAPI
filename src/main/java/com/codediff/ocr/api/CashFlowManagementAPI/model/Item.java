@@ -8,17 +8,20 @@ import javax.persistence.Id;
 
 
 
-@Entity
+//@Entity
 public class Item {
     @Id
     @GeneratedValue
-     private Long id;
+    private Long id;
     private double price;
     private Integer quantity;
     private String name;
     private Receipt receipt;
     private Categories categories;
 
+    public Item() {
+
+    }
 
     public Item(Long id, double price, Integer quantity, String name) {
         this.id = id;
@@ -26,11 +29,6 @@ public class Item {
         this.quantity = quantity;
         this.name = name;
     }
-
-    public Item() {
-
-    }
-
 
     public Long getId() {
         return id;

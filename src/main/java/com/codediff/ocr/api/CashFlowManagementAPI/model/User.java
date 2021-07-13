@@ -1,5 +1,6 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import javax.persistence.OneToMany;
 import java.util.*;
 
 public class User {

@@ -1,13 +1,13 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 public class Receipt {
+
     private Long id;
-//    private List<Item> items;
+    private List<Item> items;
     private Double totalPrice;
     private Integer totalItems;
     private Date date;
@@ -21,13 +21,13 @@ public class Receipt {
         this.id = id;
     }
 
-//    public List<Item> getItems() {
-//        return items;
-//    }
-//
-//    public void setItems(List<Item> items) {
-//        this.items = items;
-//    }
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 
     public Double getTotalPrice() {
         return totalPrice;
@@ -59,5 +59,9 @@ public class Receipt {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void priceByCategory(){
+
     }
 }
