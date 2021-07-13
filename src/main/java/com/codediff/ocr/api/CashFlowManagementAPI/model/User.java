@@ -12,8 +12,6 @@ public class User {
     @GeneratedValue
     private Long id;
     private Boolean overSpent = false;
-
-
     private List<Receipt> receipts;
 
     public User(){
