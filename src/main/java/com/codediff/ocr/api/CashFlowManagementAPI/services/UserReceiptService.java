@@ -3,11 +3,13 @@ package com.codediff.ocr.api.CashFlowManagementAPI.services;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.Receipt;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Service
 public class UserReceiptService {
     @Autowired
     User user;

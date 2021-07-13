@@ -1,22 +1,21 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
-import org.springframework.stereotype.Component;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
-
-//@Entity
+@Entity
 public class Item {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private double price;
     private Integer quantity;
     private String name;
+
+    @ManyToOne
     private Receipt receipt;
+
     private Categories categories;
 
     public Item() {

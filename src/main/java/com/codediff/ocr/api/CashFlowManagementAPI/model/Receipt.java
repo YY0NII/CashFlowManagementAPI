@@ -1,16 +1,23 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
+@Entity
 public class Receipt {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(mappedBy = "receipt")
     private List<Item> items;
+
     private Double totalPrice;
     private Integer totalItems;
     private Date date;
+
+    @ManyToOne
     private User user;
 
     public Long getId() {
