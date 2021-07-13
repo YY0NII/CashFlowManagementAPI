@@ -1,23 +1,17 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
-@Entity
+
 public class Receipt {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
-//    List<Item> items;
-    Double totalPrice;
-    Integer totalItems;
-    Date date;
-//    User user;
+    private Long id;
+//    private List<Item> items;
+    private Double totalPrice;
+    private Integer totalItems;
+    private Date date;
+    private User user;
 
     public Long getId() {
         return id;
@@ -59,18 +53,11 @@ public class Receipt {
         this.date = date;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
-//
-//    public void addItem(Item item){
-//        items.add(item);
-//    }
+    public User getUser() {
+        return user;
+    }
 
-//    public Map<Categories, List<Item>> priceByCategory(){
-//    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

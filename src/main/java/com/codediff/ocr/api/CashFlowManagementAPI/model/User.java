@@ -6,26 +6,9 @@ public class User {
     private String userName;
     private Double budget;
     private Double totalSpent;
-    private Long id;
-    private Boolean overSpent = false;
-
+    private Long Id;
+    private Boolean overSpent;
     private List<Receipt> receipts;
-
-    public User(String userName) {
-        this.userName = userName;
-    }
-
-    public User() {
-
-    }
-
-    public User(String userName, Double budget, Double totalSpent, Long id) {
-        this.userName = userName;
-        this.budget = budget;
-        this.totalSpent = totalSpent;
-        this.id = id;
-
-    }
 
     public List<Receipt> getReceipts() {
         return receipts;
@@ -61,11 +44,11 @@ public class User {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        Id = id;
     }
 
     public Boolean getOverSpent() {
@@ -91,5 +74,6 @@ public class User {
     public void removeReceipt(Receipt receipts) {
 
     }
+
 
 }
