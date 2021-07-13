@@ -1,6 +1,7 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.services;
 
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
+import com.codediff.ocr.api.CashFlowManagementAPI.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-interface ReceiptRepo extends JpaRepository<Receipt, Long> {
+public interface ReceiptRepo extends JpaRepository<Receipt, Long> {
 }
