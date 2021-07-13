@@ -1,17 +1,19 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
 public class User {
     private String userName;
     private Double budget;
     private Double totalSpent;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Boolean overSpent = false;
+
+    @OneToMany(mappedBy = "user")
     private List<Receipt> receipts;
 
     public User(){
