@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class UserService {
     @Autowired
@@ -14,45 +15,28 @@ public class UserService {
     @Autowired
     UserReceiptService userReceiptService;
 
-    @Autowired
-    User user;
 
-    List<User> users = new ArrayList<>();
 
     public List<User> getAllUsers(){
-        return users;
+        return userRepo.findAll();
     }
 
-    public void addUser(User user){
-        if (!users.contains(user)){
-            users.add(user);
-        }
+    public void addUser(User user) {
+            userRepo.save(user);
     }
 
     public User getUser(User user){
-        for (User temp : users) {
-
-            if (temp.equals(user)){
-                return temp;
-            }
-        }
-        return  null;
+        return userRepo.findById(user.getId()).orElseThrow();
     }
 
     public void createUser(String userName){
         User user = new User(userName);
-        users.add(user);
+        userRepo.save(user);
         userReceiptService.addUserReceipts(user.getId());
     }
 
     public User getUserById(Long id){
-        for (User user: users){
-            if (user.getId().equals(id)){
-                return user;
-            }
-
-        }
-        return null;
+        return userRepo.findById(id).orElseThrow();
     }
 
 
