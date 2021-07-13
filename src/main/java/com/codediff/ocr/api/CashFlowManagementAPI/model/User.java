@@ -12,9 +12,7 @@ public class User {
     @GeneratedValue
     private Long id;
     private Boolean overSpent = false;
-
-
-    private List<Receipt> receipts = new ArrayList<>();
+    private List<Receipt> receipts;
 
     public User(){
 
@@ -87,5 +85,14 @@ public class User {
     public void removeFromSpent(Double expense) {
         totalSpent -= expense;
     }
+
+    public void addReceipt(Receipt receipts) {
+
+    }
+
+    public void removeReceipt(Receipt receipts) {
+
+    }
+
 
 }
