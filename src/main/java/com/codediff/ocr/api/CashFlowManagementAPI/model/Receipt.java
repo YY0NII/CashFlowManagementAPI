@@ -6,18 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    //List<Item> items;
+//    List<Item> items;
     Double totalPrice;
     Integer totalItems;
     Date date;
-    //User user
-
+//    User user;
 
     public Long getId() {
         return id;
@@ -26,6 +26,14 @@ public class Receipt {
     public void setId(Long id) {
         this.id = id;
     }
+
+//    public List<Item> getItems() {
+//        return items;
+//    }
+//
+//    public void setItems(List<Item> items) {
+//        this.items = items;
+//    }
 
     public Double getTotalPrice() {
         return totalPrice;
@@ -50,4 +58,19 @@ public class Receipt {
     public void setDate(Date date) {
         this.date = date;
     }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+//
+//    public void addItem(Item item){
+//        items.add(item);
+//    }
+
+//    public Map<Categories, List<Item>> priceByCategory(){
+//    }
 }
