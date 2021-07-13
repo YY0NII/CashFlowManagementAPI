@@ -1,5 +1,7 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import java.util.Date;
 import java.util.List;

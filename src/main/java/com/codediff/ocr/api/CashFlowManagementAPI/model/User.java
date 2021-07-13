@@ -1,8 +1,12 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.*;
+
+
 
 public class User {
     private String userName;
