@@ -19,7 +19,6 @@ public class Receipt {
     private Double totalPrice;
     private Integer totalItems;
     private Date date;
-
     private Long userId;
 
     public Long getId() {
@@ -77,18 +76,5 @@ public class Receipt {
                 ", totalPrice=" + totalPrice +
                 ", totalItems=" + totalItems +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Receipt)) return false;
-        Receipt receipt = (Receipt) o;
-        return getId().equals(receipt.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
     }
 }
