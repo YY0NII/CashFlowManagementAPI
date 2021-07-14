@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+//Update annotations
 public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,13 +14,12 @@ public class Receipt {
     @OneToMany(mappedBy = "receipt")
     private List<Item> items;
 
-    @Column
     private Double totalPrice;
-    @Column
     private Integer totalItems;
-    @Column
     private Date date;
 
+    public Receipt(){
+    }
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
@@ -63,13 +63,13 @@ public class Receipt {
         this.date = date;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     @Override
     public String toString() {

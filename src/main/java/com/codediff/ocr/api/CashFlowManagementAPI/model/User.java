@@ -1,10 +1,16 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import com.codediff.ocr.api.CashFlowManagementAPI.repos.ReceiptRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 public class User {
+
+    @Autowired
+    ReceiptRepo receiptRepo;
     private String userName;
     private Double budget;
     private Double totalSpent;

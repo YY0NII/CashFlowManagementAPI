@@ -22,7 +22,8 @@ public class UserController {
     UserReceiptService userReceiptService;
 
     @PostMapping("/users")
-    public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response) throws IOException {
+    public ResponseEntity<String> newUser(@RequestBody User user) {
+        System.out.println(user);
         if (userService.getAllUsers().contains(user)) {
             return new ResponseEntity<String>("User " + user.getUserName() + "already exist", HttpStatus.IM_USED);
         }

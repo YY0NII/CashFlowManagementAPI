@@ -22,15 +22,21 @@ public class UserReceiptService {
     ReceiptRepo receiptRepo;
 
     public void addReceiptToUser(Long id,Receipt receipt){
-        User newUser =userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
-        newUser.addReceipt(receipt);
-        receipt.setUser(newUser);
-        userRepo.save(newUser);
+        User user =userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
+        //userRepo.getById(id).addReceipt(receipt);
+        //receipt.setUser(newUser);
+        userRepo.save(user);
         receiptRepo.save(receipt);
+        System.out.println(receipt);
+        System.out.println(user.getReceipts());
     }
 
     public void deleteReceiptFromUer(){
 
     }
+
+
+
+
 
 }
