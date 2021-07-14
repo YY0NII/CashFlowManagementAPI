@@ -13,14 +13,11 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "receipt")
+    @OneToMany(mappedBy = "receiptId")
     private List<Item> items;
 
-    @Column
     private Double totalPrice;
-    @Column
     private Integer totalItems;
-    @Column
     private Date date;
 
     private Long userId;
