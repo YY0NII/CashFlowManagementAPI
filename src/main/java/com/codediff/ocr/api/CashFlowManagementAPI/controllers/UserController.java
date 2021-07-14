@@ -21,6 +21,7 @@ public class UserController {
     @Autowired
     UserReceiptService userReceiptService;
 
+    // NEW USER
     @PostMapping("/users")
     public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response) throws IOException {
         if (userService.getAllUsers().contains(user)) {
@@ -31,34 +32,25 @@ public class UserController {
         return new ResponseEntity<String>("Welcome " + user.getUserName() + "!", HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    public ResponseEntity<String> login(User user, HttpServletResponse response)throws IOException{
-//        if(userService.getAllUsers().contains(user)){
-//            response.sendRedirect("/account");
-//            return new ResponseEntity<String>("Welcome "+ user.getUserName() +"!", HttpStatus.CREATED);
-//        }
-//        else{
-//            return  new ResponseEntity<>(user.getUserName() +"Not Found!", HttpStatus.NOT_FOUND);
-//        }
-//    }
-//
-//
-//
+    // GET ALL USERS
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
 
+    // GET USER BY ID
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
+    // ADD RECEIPT TO USER
     @PostMapping("/users/{id}")
     public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
        userReceiptService.addReceiptToUser(id,receipt);
     }
 
+    //REMOVE RECEIPT FROM USER
     @PostMapping("removeReceipt")
     public void removeReceiptFromUser(Long id, Receipt receipt){
         User currentUser = getUserById(id);
