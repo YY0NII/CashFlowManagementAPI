@@ -16,6 +16,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Receipt> receipts;
 
+    private String password;
+
     public User(){
 
     }
