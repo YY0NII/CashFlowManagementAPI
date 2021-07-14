@@ -15,26 +15,22 @@ import java.util.List;
 
 @RestController
 public class UserController {
-//    @Autowired
-//    UserService userService;
-//
-//    @Autowired
-//    User currentUser;
-//
-//    @Autowired
-//    UserReceiptService userReceiptService;
-//
-//    @PostMapping("/login")
-//    public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response)throws IOException{
-//        if (userService.getAllUsers().contains(user)){
-//            return new ResponseEntity<String>("User "+user.getUserName() + "already exist", HttpStatus.IM_USED);
-//        }
-//        userService.createUser(user.getUserName());
-//        currentUser = userService.getUser(user);
-//        response.sendRedirect("/account");
-//        return new ResponseEntity<String>("Welcome "+ user.getUserName() +"!", HttpStatus.CREATED);
-//    }
-//
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    UserReceiptService userReceiptService;
+
+    @PostMapping("/users")
+    public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response) throws IOException {
+        if (userService.getAllUsers().contains(user)) {
+            return new ResponseEntity<String>("User " + user.getUserName() + "already exist", HttpStatus.IM_USED);
+        }
+        userService.addUser(user);
+        //response.sendRedirect("/account");
+        return new ResponseEntity<String>("Welcome " + user.getUserName() + "!", HttpStatus.CREATED);
+    }
+
 //    @GetMapping
 //    public ResponseEntity<String> login(User user, HttpServletResponse response)throws IOException{
 //        if(userService.getAllUsers().contains(user)){
@@ -48,26 +44,24 @@ public class UserController {
 //
 //
 //
-//
-//    @GetMapping("/Users")
-//    public List<User> getAllUsers(){
-//        return userService.getAllUsers();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public User getUserById(@PathVariable Long id){
-//        return userService.getUserById(id);
-//    }
-//
-//    @PostMapping("addReceipt")
-//    public void addReceiptToUser(Long id, Receipt receipt){
-//        User currentUser = getUserById(id);
-//        currentUser.getReceipts().add(receipt);
-//    }
-//
-//    @PostMapping("removeReceipt")
-//    public void removeReceiptFromUser(Long id, Receipt receipt){
-//        User currentUser = getUserById(id);
-//            currentUser.getReceipts().remove(receipt);
-//    }
+    @GetMapping("/users")
+    public List<User> getAllUsers(){
+        return userService.getAllUsers();
+    }
+
+    @GetMapping("/users/{id}")
+    public User getUserById(@PathVariable Long id){
+        return userService.getUserById(id);
+    }
+
+    @PostMapping("/users/{id}")
+    public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
+       userReceiptService.addReceiptToUser(id,receipt);
+    }
+
+    @PostMapping("removeReceipt")
+    public void removeReceiptFromUser(Long id, Receipt receipt){
+        User currentUser = getUserById(id);
+            currentUser.getReceipts().remove(receipt);
+    }
 }

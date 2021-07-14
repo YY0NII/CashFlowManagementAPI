@@ -1,7 +1,10 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.services;
 
+import com.codediff.ocr.api.CashFlowManagementAPI.exceptions.UserNotFoundException;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.Receipt;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
+import com.codediff.ocr.api.CashFlowManagementAPI.repos.ReceiptRepo;
+import com.codediff.ocr.api.CashFlowManagementAPI.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,21 +14,23 @@ import java.util.List;
 
 @Service
 public class UserReceiptService {
+
     @Autowired
-    User user;
+    UserRepo userRepo;
 
-    HashMap<Long, List<Receipt>> usersAndTheirReceipts = new HashMap<>();
+    @Autowired
+    ReceiptRepo receiptRepo;
 
-    public List<Receipt> getUserReceipts(Long id){
-        return usersAndTheirReceipts.get(id);
+    public void addReceiptToUser(Long id,Receipt receipt){
+        User newUser =userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
+        newUser.addReceipt(receipt);
+        receipt.setUser(newUser);
+        userRepo.save(newUser);
+        receiptRepo.save(receipt);
     }
 
-    public void addUserReceipts(Long id, List<Receipt> receipts){
-        usersAndTheirReceipts.put(id,receipts);
-    }
+    public void deleteReceiptFromUer(){
 
-    public void addUserReceipts(Long id){
-        usersAndTheirReceipts.put(id,null);
     }
 
 }

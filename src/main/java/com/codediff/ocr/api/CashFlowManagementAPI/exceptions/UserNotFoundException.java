@@ -2,7 +2,7 @@ package com.codediff.ocr.api.CashFlowManagementAPI.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 
-    UserNotFoundException(Long id) {
+    public UserNotFoundException(Long id) {
         super("could not find User" + id);
     }
 
