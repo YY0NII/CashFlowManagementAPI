@@ -13,11 +13,14 @@ public class Receipt {
     @OneToMany(mappedBy = "receipt")
     private List<Item> items;
 
+    @Column
     private Double totalPrice;
+    @Column
     private Integer totalItems;
+    @Column
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     public Long getId() {
@@ -66,5 +69,14 @@ public class Receipt {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "id=" + id +
+                ", totalPrice=" + totalPrice +
+                ", totalItems=" + totalItems +
+                '}';
     }
 }

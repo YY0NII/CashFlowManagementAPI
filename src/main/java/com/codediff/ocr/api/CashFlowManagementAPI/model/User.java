@@ -90,12 +90,12 @@ public class User {
         totalSpent -= expense;
     }
 
-    public void addReceipt(Receipt receipts) {
-
+    public void addReceipt(Receipt receipt) {
+        this.receipts.add(receipt);
     }
 
-    public void removeReceipt(Receipt receipts) {
-
+    public void removeReceipt(Receipt receipt) {
+        this.receipts.remove(receipt);
     }
 
 
