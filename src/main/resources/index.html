@@ -14,19 +14,19 @@
     <h2>Cash Flow Management Api</h2>
     <ul class="list-group" id="receipts"></ul>
     <form class="mt-5">
-      <button onclick="deleteAll(receipt)">Clear</button>
+      <button onclick="deleteAll(event)">Clear</button>
     </form>
   </div>
   <div>
     <h2>Upload Receipt</h2>
     <form class="new-receipt">
-      <label for="receiptpicture" class="form-data">Picture of Receipt</label>
-      <input type="file" class="form-control" id="receiptpicture">
-      <!--<label for="amount" class="form-label">Amount</label>
-      <input type="number" step="0.01" class="form-control" id="amount">
+      <label for="username" class="form-label">UserName</label>
+      <input type="text" class="form-control" id="username">
       <label for="date" class="form-label">Date</label>
-      <input type="date" class="form-control" id="date">-->
-      <input type="submit" onclick="uploadNewReceipt(receipt)">
+      <input type="date" class="form-control" id="date">
+      <label for="receiptPicture" class="form-label">Picture of Receipt</label>
+      <input type="file" class="form-control" id="receiptPicture">
+      <input type="submit" onclick="uploadNewReceipt(event)">
     </form>
   </div>
 </div>

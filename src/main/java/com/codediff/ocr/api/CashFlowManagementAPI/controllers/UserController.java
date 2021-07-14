@@ -21,6 +21,7 @@ public class UserController {
     @Autowired
     UserReceiptService userReceiptService;
 
+    @CrossOrigin
     @PostMapping("/users")
     public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response) throws IOException {
         if (userService.getAllUsers().contains(user)) {
@@ -44,21 +45,25 @@ public class UserController {
 //
 //
 //
+    @CrossOrigin
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
 
+    @CrossOrigin
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
+    @CrossOrigin
     @PostMapping("/users/{id}")
     public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
        userReceiptService.addReceiptToUser(id,receipt);
     }
 
+    @CrossOrigin
     @PostMapping("removeReceipt")
     public void removeReceiptFromUser(Long id, Receipt receipt){
         User currentUser = getUserById(id);
