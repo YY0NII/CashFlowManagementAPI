@@ -1,8 +1,11 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Receipt {
@@ -20,8 +23,7 @@ public class Receipt {
     @Column
     private Date date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -63,12 +65,12 @@ public class Receipt {
         this.date = date;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -78,5 +80,18 @@ public class Receipt {
                 ", totalPrice=" + totalPrice +
                 ", totalItems=" + totalItems +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Receipt)) return false;
+        Receipt receipt = (Receipt) o;
+        return getId().equals(receipt.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }

@@ -24,7 +24,7 @@ public class UserReceiptService {
     public void addReceiptToUser(Long id,Receipt receipt){
         User newUser =userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
         newUser.addReceipt(receipt);
-        receipt.setUser(newUser);
+        receipt.setUserId(newUser.getId());
         userRepo.save(newUser);
         receiptRepo.save(receipt);
     }
