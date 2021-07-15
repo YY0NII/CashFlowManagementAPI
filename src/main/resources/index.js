@@ -47,7 +47,7 @@ function uploadNewReceipt(e){
         username: +document.getElementById("username").value,
         date: document.getElementById("date").value
     }
-    fetch("http://localhost:8080/users/",
+    fetch("http://localhost:8080/users",
         {
             method: 'POST',
             headers: {'Content-Type': 'application/json',},
@@ -66,15 +66,15 @@ function deleteAll(e){
 }
 
 async function getAllReceipts(){
-    let response = await fetch("http://localhost:8080/users/");
+    let response = await fetch("http://localhost:8080/users");
     let body = await response.json();
-    let receipts = body.map(receipt => {
+    let receipt = body.map(receipt => {
     let date = new Date(receipt.date)
         return (
-            `<li class="list-group-item receipts">
+            `<li class="list-group-item receipt">
                 <p>${date.getMonth()+1}/${date.getDate()+1}/${date.getFullYear()}</p>
-                <p>${receipt.username}</p>
-                <p>${receipt.receiptPicture}</p>
+                <p>${receipts.username}</p>
+                <p>${receipts.receiptPicture}</p>
 
             </li>`
         );
