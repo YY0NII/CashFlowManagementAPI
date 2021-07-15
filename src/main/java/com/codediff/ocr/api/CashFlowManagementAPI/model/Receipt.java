@@ -69,6 +69,10 @@ public class Receipt {
         this.userId = userId;
     }
 
+    public void removeUserId(Long userId) {
+        this.userId = null;
+    }
+
     @Override
     public String toString() {
         return "Receipt{" +

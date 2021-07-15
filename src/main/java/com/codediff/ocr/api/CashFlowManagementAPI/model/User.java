@@ -1,5 +1,7 @@
 package com.codediff.ocr.api.CashFlowManagementAPI.model;
 
+import net.bytebuddy.implementation.bytecode.Throw;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -41,7 +43,21 @@ public class User {
     }
 
     public void setBudget(Double budget) {
-        this.budget = budget;
+        if(budget >0) {
+            this.budget = budget;
+        }
+        else{
+            throw new Error("Budget has to be above 0$");
+        }
+    }
+
+    public void addToBudget(Double budget){
+        if(budget >-1){
+            this.budget += budget;
+        }
+        else{
+            throw new Error("Cannot add negative to Budget");
+        }
     }
 
     public Double getTotalSpent() {
@@ -82,6 +98,10 @@ public class User {
 
     public void removeReceipt(Receipt receipt) {
         this.receipts.remove(receipt);
+    }
+
+    public void removeAllReceipts(){
+        this.receipts.clear();
     }
 
     @Override
