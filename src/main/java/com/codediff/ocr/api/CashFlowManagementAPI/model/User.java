@@ -6,11 +6,13 @@ import java.util.*;
 @Entity
 public class User {
     private String userName;
-    private Double budget;
-    private Double totalSpent;
+    private Double budget = 0.0;
+    private Double totalSpent = 0.0;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Boolean overSpent = false;
 
     @OneToMany(mappedBy = "userId")
