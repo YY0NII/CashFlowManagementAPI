@@ -47,8 +47,7 @@ public class UserService {
     public void addBudgetToUser(Long userId,Double amountAdded){
         User user =userRepo.findById(userId).orElseThrow(()-> new UserNotFoundException(userId));
         user.setBudget(amountAdded);
-        //final User updatedUser =
-                userRepo.save(user);
+        userRepo.save(user);
     }
 
 }
