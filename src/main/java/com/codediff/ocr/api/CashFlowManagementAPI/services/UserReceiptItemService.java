@@ -35,6 +35,7 @@ public class UserReceiptItemService {
         userService.addUser(newUser);
         receiptService.save(receipt);
 
+        // Trying to decide if I should check for null or allow this method to throw an exception
         for (Item i: receipt.getItems()) {
             i.setReceiptId(receipt.getId());
             itemService.save(i);
