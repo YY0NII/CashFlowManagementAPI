@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class UserController {
     @Autowired
@@ -21,7 +22,7 @@ public class UserController {
     @Autowired
     UserReceiptService userReceiptService;
 
-    @CrossOrigin
+    // NEW USER
     @PostMapping("/users")
     public ResponseEntity<String> newUser(@RequestBody User user, HttpServletResponse response) throws IOException {
         if (userService.getAllUsers().contains(user)) {
@@ -32,38 +33,25 @@ public class UserController {
         return new ResponseEntity<String>("Welcome " + user.getUserName() + "!", HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    public ResponseEntity<String> login(User user, HttpServletResponse response)throws IOException{
-//        if(userService.getAllUsers().contains(user)){
-//            response.sendRedirect("/account");
-//            return new ResponseEntity<String>("Welcome "+ user.getUserName() +"!", HttpStatus.CREATED);
-//        }
-//        else{
-//            return  new ResponseEntity<>(user.getUserName() +"Not Found!", HttpStatus.NOT_FOUND);
-//        }
-//    }
-//
-//
-//
-    @CrossOrigin
+    // GET ALL USERS
     @GetMapping("/users")
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
 
-    @CrossOrigin
+    // GET USER BY ID
     @GetMapping("/users/{id}")
     public User getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
-    @CrossOrigin
+    // ADD RECEIPT TO USER
     @PostMapping("/users/{id}")
     public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
        userReceiptService.addReceiptToUser(id,receipt);
     }
 
-    @CrossOrigin
+    //REMOVE RECEIPT FROM USER
     @PostMapping("removeReceipt")
     public void removeReceiptFromUser(Long id, Receipt receipt){
         User currentUser = getUserById(id);

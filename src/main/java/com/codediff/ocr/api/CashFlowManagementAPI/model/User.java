@@ -13,25 +13,11 @@ public class User {
     private Long id;
     private Boolean overSpent = false;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userId")
     private List<Receipt> receipts;
 
     private String password;
 
-    public User(){
-
-    }
-
-    public User(String userName) {
-        this.userName = userName;
-    }
-
-    public User(String userName, Double budget, Double totalSpent, Long id){
-        this.userName = userName;
-        this.budget = budget;
-        this.totalSpent = totalSpent;
-        this.id = id;
-    }
 
     public List<Receipt> getReceipts() {
         return receipts;
@@ -98,5 +84,15 @@ public class User {
         this.receipts.remove(receipt);
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", budget=" + budget +
+                ", totalSpent=" + totalSpent +
+                ", id=" + id +
+                ", overSpent=" + overSpent +
+                ", receipts=" + receipts +
+                '}';
+    }
 }

@@ -12,22 +12,8 @@ public class Item {
     private double price;
     private Integer quantity;
     private String name;
-
-    @ManyToOne
-    private Receipt receipt;
-
+    private Long receiptId;
     private Categories categories;
-
-    public Item() {
-
-    }
-
-    public Item(Long id, double price, Integer quantity, String name) {
-        this.id = id;
-        this.price = price;
-        this.quantity = quantity;
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
@@ -61,12 +47,12 @@ public class Item {
         this.name = name;
     }
 
-    public Receipt getReceipt() {
-        return receipt;
+    public Long getReceiptId() {
+        return receiptId;
     }
 
-    public void setReceipt(Receipt receipt) {
-        this.receipt = receipt;
+    public void setReceiptId(Long receiptId) {
+        this.receiptId = receiptId;
     }
 
     public Categories getCategories() {

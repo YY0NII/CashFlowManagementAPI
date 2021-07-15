@@ -5,6 +5,33 @@
     margin: 5%;
 }
 
+body {
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a665c883-531f-491e-af67-198bb5206ea6/d3n15qk-e549fda4-cbdf-41fc-8936-77ef3f68f82b.jpg/v1/fill/w_900,h_389,q_75,strp/new_portfolio_background_by_larundel-d3n15qk.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9hNjY1Yzg4My01MzFmLTQ5MWUtYWY2Ny0xOThiYjUyMDZlYTYvZDNuMTVxay1lNTQ5ZmRhNC1jYmRmLTQxZmMtODkzNi03N2VmM2Y2OGY4MmIuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9Mzg5In1dXX0.CAFysX_F8dkEzCI7fhOutwv1rbv9RA93-thV7CPawss");
+    	background-color: gray;
+}
+
+h2 {
+    padding: 4%;
+    color: white;
+}
+
+legend {
+    color: white;
+    text-align: center;
+    padding: 5%;
+}
+
+label {
+
+    color: white;
+}
+
+button {
+    color: white;
+
+}
+
+
 
 
 .new-receipt{
