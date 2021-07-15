@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Please Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div>
+
+  <form name="f" th:action="@{/login}" method="post">
+    <fieldset>
+      <legend>Receipt Login Page </legend>
+      <div th:if="${param.error}" class="alert alert-error">
+        Invalid username and password.
+      </div>
+      <div th:if="{param.logout}" class="alert alert-success">
+        You have been logged out.
+      </div>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username"/>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password"/>
+      <!--            <label for="register">Register</label>-->
+      <!--            <input type="register" id="register" name="register"/>-->
+      <div class="two-col">
+        <button type="button" class="btn" onclick="login(form);">Log in</button>
+        <button type="submit" class="btn">Register</button>
+        </div>
+    </fieldset>
+  </form>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
