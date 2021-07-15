@@ -2,7 +2,7 @@ package com.codediff.ocr.api.CashFlowManagementAPI.controllers;
 
 import com.codediff.ocr.api.CashFlowManagementAPI.model.Receipt;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
-import com.codediff.ocr.api.CashFlowManagementAPI.services.UserReceiptService;
+import com.codediff.ocr.api.CashFlowManagementAPI.services.UserReceiptItemService;
 import com.codediff.ocr.api.CashFlowManagementAPI.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @Autowired
-    UserReceiptService userReceiptService;
+    UserReceiptItemService userReceiptItemService;
 
     // NEW USER
     @PostMapping("/users")
@@ -47,7 +47,7 @@ public class UserController {
     // ADD RECEIPT TO USER
     @PostMapping("/users/{id}")
     public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
-       userReceiptService.addReceiptToUser(id,receipt);
+       userReceiptItemService.addReceiptToUser(id,receipt);
     }
 
     //REMOVE RECEIPT FROM USER

@@ -13,7 +13,7 @@ public class Item {
     private Integer quantity;
     private String name;
     private Long receiptId;
-    private Categories categories;
+    private Categories category;
 
     public Long getId() {
         return id;
@@ -55,11 +55,23 @@ public class Item {
         this.receiptId = receiptId;
     }
 
-    public Categories getCategories() {
-        return categories;
+    public Categories getCategory() {
+        return category;
     }
 
-    public void setCategories(Categories categories) {
-        this.categories = categories;
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", receiptId=" + receiptId +
+                ", category=" + category +
+                '}';
     }
 }

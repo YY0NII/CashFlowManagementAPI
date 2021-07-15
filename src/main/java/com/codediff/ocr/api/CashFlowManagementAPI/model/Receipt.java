@@ -73,8 +73,11 @@ public class Receipt {
     public String toString() {
         return "Receipt{" +
                 "id=" + id +
+                ", items=" + items +
                 ", totalPrice=" + totalPrice +
                 ", totalItems=" + totalItems +
+                ", date=" + date +
+                ", userId=" + userId +
                 '}';
     }
 }

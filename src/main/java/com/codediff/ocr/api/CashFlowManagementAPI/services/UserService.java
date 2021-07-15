@@ -3,12 +3,13 @@ package com.codediff.ocr.api.CashFlowManagementAPI.services;
 import com.codediff.ocr.api.CashFlowManagementAPI.exceptions.UserNotFoundException;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
 import com.codediff.ocr.api.CashFlowManagementAPI.repos.UserRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @Service
 public class UserService {
     @Autowired
@@ -26,5 +27,4 @@ public class UserService {
     public User getUserById(Long id){
         return userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
     }
-
 }
