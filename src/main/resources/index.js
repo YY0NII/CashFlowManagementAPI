@@ -43,7 +43,7 @@ function login(form){
 function uploadNewReceipt(e){
     e.preventDefault();
     let receipts = {
-        receiptImage: document.getElementById("receiptPicture").value,
+        receiptImage: document.getElementById("receipt").value,
         username: +document.getElementById("username").value,
         date: document.getElementById("date").value
     }
@@ -74,7 +74,7 @@ async function getAllReceipts(){
             `<li class="list-group-item receipt">
                 <p>${date.getMonth()+1}/${date.getDate()+1}/${date.getFullYear()}</p>
                 <p>${receipts.username}</p>
-                <p>${receipts.receiptPicture}</p>
+                <p>${receipts.receipt}</p>
 
             </li>`
         );
