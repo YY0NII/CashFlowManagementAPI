@@ -11,20 +11,21 @@
     <fieldset>
       <legend>Receipt Login Page </legend>
       <div th:if="${param.error}" class="alert alert-error">
-        Invalid username and password.
+
       </div>
       <div th:if="{param.logout}" class="alert alert-success">
-        You have been logged out.
+
       </div>
       <label for="username">Username</label>
       <input type="text" id="username" name="username"/>
       <label for="password">Password</label>
       <input type="password" id="password" name="password"/>
-      <!--            <label for="register">Register</label>-->
-      <!--            <input type="register" id="register" name="register"/>-->
+<!--                  <label for="Forgot Password">Register</label>-->
+<!--                  <input type="Forgot Password" id="register" name="register"/>-->
       <div class="two-col">
         <button type="submit" class="btn">Log in</button>
         <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Forgot Password</button>
         <div>
     </fieldset>
   </form>
