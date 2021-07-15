@@ -42,8 +42,21 @@ public class UserReceiptItemService {
         }
     }
 
-    public void deleteReceiptFromUer(){
+    public void deleteReceiptFromUer(Long userId, Long receiptId){
+        User currentUser =userService.getUserById(userId);
+        Receipt currentReceipt = receiptService.findById(receiptId);
+        currentUser.removeReceipt(currentReceipt);
+        currentReceipt.removeUserId(currentUser.getId());//almost redundant because the receipt will be set to null anyways
+        receiptService.delete(currentReceipt);
+    }
+    @Transactional
+    public void deleteAllUserReceipts(Long id){
+        User currentUser =userService.getUserById(id);
+        receiptService.deleteAll(currentUser.getReceipts());
+        currentUser.removeAllReceipts();
+        System.out.println("hello"+currentUser);
 
     }
+
 
 }

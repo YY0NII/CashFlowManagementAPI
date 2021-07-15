@@ -80,4 +80,8 @@ public class Receipt {
                 ", userId=" + userId +
                 '}';
     }
+
+    public void removeUserId(Long userId) {
+        this.userId = null;
+    }
 }

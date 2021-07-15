@@ -97,4 +97,8 @@ public class User {
                 ", receipts=" + receipts +
                 '}';
     }
+
+    public void removeAllReceipts() {
+        receipts.clear();
+    }
 }

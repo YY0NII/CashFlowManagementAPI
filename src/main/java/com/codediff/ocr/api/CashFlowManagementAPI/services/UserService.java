@@ -27,4 +27,18 @@ public class UserService {
     public User getUserById(Long id){
         return userRepo.findById(id).orElseThrow(()-> new UserNotFoundException(id));
     }
+
+    public void deleteUser(Long id){
+        User currentUser = userRepo.getById(id);
+        userRepo.delete(currentUser);
+        //receiptRepo.deleteAllById(currentUser.getReceipts());
+
+    }
+
+    public void addBudgetToUser(Long userId,Double amountAdded){
+        User user =userRepo.findById(userId).orElseThrow(()-> new UserNotFoundException(userId));
+        user.setBudget(amountAdded);
+        userRepo.save(user);
+    }
 }
+

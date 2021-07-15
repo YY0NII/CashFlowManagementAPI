@@ -3,7 +3,7 @@ package com.codediff.ocr.api.CashFlowManagementAPI.controllers;
 import com.codediff.ocr.api.CashFlowManagementAPI.exceptions.UserNotFoundException;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.Receipt;
 import com.codediff.ocr.api.CashFlowManagementAPI.model.User;
-import com.codediff.ocr.api.CashFlowManagementAPI.services.UserReceiptService;
+import com.codediff.ocr.api.CashFlowManagementAPI.services.UserReceiptItemService;
 import com.codediff.ocr.api.CashFlowManagementAPI.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,13 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class UserController {
     @Autowired
     UserService userService;
 
     @Autowired
-    UserReceiptService userReceiptService;
+    UserReceiptItemService userReceiptItemService;
 
     // NEW USER
     @PostMapping("/users")
@@ -59,19 +60,19 @@ public class UserController {
     // ADD RECEIPT TO USER
     @PostMapping("/users/{id}")
     public void addReceiptToUser(@PathVariable Long id,@RequestBody Receipt receipt){
-       userReceiptService.addReceiptToUser(id,receipt);
+       userReceiptItemService.addReceiptToUser(id,receipt);
     }
 
     //REMOVE RECEIPT FROM USER
     @DeleteMapping("/users/{userId}/receipt")
     public void removeReceiptFromUser(@PathVariable Long userId, @RequestBody Long receiptId){
-       userReceiptService.deleteReceiptFromUer(userId,receiptId);
+       userReceiptItemService.deleteReceiptFromUer(userId,receiptId);
     }
 
     //REMOVE ALL RECEIPTS FROM USER
     @DeleteMapping("/users/{userId}/receipts")
     public void removeAllReceiptsFromUser(@PathVariable Long userId){
-        userReceiptService.deleteAllUserReceipts(userId);
+        userReceiptItemService.deleteAllUserReceipts(userId);
     }
 
     @PutMapping("users/{userId}/budget")
