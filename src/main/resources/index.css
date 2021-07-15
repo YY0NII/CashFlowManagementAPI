@@ -13,7 +13,7 @@
     row-gap: 10px;
 }
 
-.receipt {
+.receipts {
     display: grid;
     grid-template-columns: 20% 70% 10%;
 }
