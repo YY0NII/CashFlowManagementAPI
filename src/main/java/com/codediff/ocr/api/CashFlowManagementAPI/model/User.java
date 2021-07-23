@@ -44,6 +44,7 @@ public class User {
 
     public void setBudget(Double budget) {
         this.budget = budget;
+        checkIfOverSpent();
     }
 
     public Double getTotalSpent() {
@@ -70,8 +71,13 @@ public class User {
         this.overSpent = overSpent;
     }
 
+    private void checkIfOverSpent(){
+        setOverSpent(this.budget < this.totalSpent);
+    }
+
     public void addToSpent(Double expense) {
         totalSpent += expense;
+        checkIfOverSpent();
     }
 
     public void removeFromSpent(Double expense) {
@@ -80,6 +86,7 @@ public class User {
 
     public void addReceipt(Receipt receipt) {
         this.receipts.add(receipt);
+        this.addToSpent(receipt.getTotalPrice());
     }
 
     public void removeReceipt(Receipt receipt) {
